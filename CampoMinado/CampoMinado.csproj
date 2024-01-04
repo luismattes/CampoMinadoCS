@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Imagens\0.png" />
+    <None Remove="Imagens\1.png" />
+    <None Remove="Imagens\2.png" />
+    <None Remove="Imagens\3.png" />
+    <None Remove="Imagens\4.png" />
+    <None Remove="Imagens\5.png" />
+    <None Remove="Imagens\6.png" />
+    <None Remove="Imagens\7.png" />
+    <None Remove="Imagens\8.png" />
+    <None Remove="Imagens\bomb.png" />
+    <None Remove="Imagens\facingDown.png" />
+    <None Remove="Imagens\flagged.png" />
+    <None Remove="Imagens\sun.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imagens\4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imagens\0.png" />
+    <Resource Include="Imagens\1.png" />
+    <Resource Include="Imagens\2.png" />
+    <Resource Include="Imagens\3.png" />
+    <Resource Include="Imagens\5.png" />
+    <Resource Include="Imagens\6.png" />
+    <Resource Include="Imagens\7.png" />
+    <Resource Include="Imagens\8.png" />
+    <Resource Include="Imagens\bomb.png" />
+    <Resource Include="Imagens\facingDown.png" />
+    <Resource Include="Imagens\flagged.png" />
+    <Resource Include="Imagens\sun.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
