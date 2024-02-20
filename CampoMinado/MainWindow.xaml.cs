@@ -9,12 +9,15 @@ namespace CampoMinado
     {
         private int tempo;
         private Jogo jogo;
-        private Button[,] espacos = new Button[Jogo.x, Jogo.y];
+        private Button[,] espacos;
         DispatcherTimer dt = new DispatcherTimer();
+        char dificuldade;
 
-        public MainWindow()
+        public MainWindow(char dificuldade)
         {
-            this.jogo = new Jogo();
+            this.dificuldade = dificuldade;
+            this.jogo = new Jogo(dificuldade);
+            espacos = new Button[Jogo.x, Jogo.y];
 
             InitializeComponent();
 
@@ -134,7 +137,7 @@ namespace CampoMinado
 
         private void sun_Click(object sender, RoutedEventArgs e)
         {
-            this.jogo = new Jogo();
+            this.jogo = new Jogo(dificuldade);
 
             for (int i = 0; i < Jogo.x; i++)
             {

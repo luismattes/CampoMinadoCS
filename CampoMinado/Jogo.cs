@@ -8,16 +8,34 @@ namespace CampoMinado
     class Jogo
     {
         private Tabuleiro layout;
-        public static int x = 9;
-        public static int y = 9;
-        public static int bombCount = 10;
+        public static int x;
+        public static int y;
+        public static int bombCount;
         public bool began = false;
         private bool vitoria = false;
         private bool derrota = false;
         private int bandeiras;
 
-        public Jogo()
+        public Jogo(char dificuldade)
         {
+            switch (dificuldade)
+            {
+                case 'P':
+                    x = 9; y = 9; bombCount = 10;
+
+                    break;
+
+                case 'M':
+                    x = 16; y = 16; bombCount = 40;
+
+                    break;
+
+                case 'G':
+                    x = 16; y = 30; bombCount = 99;
+
+                    break;
+            }
+
             layout = new Tabuleiro();
             bandeiras = bombCount;
         }
