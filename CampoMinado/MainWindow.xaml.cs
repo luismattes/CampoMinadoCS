@@ -21,19 +21,19 @@ namespace CampoMinado
 
             InitializeComponent();
 
-            flags_textB.Text = jogo.getBandeiras().ToString();
+            flags_textB.Text = jogo.getBandeiras().ToString().PadLeft(3, '0');
 
             sun_button.Width = 40;
             sun_button.Content = setImagem2("C:\\Users\\louis\\source\\repos\\CampoMinado\\CampoMinado\\Imagens\\sun.png");
             sun_button.Height = 36;
-            campo_grid.Width = (Jogo.x) * (Espaco.tamanhoQuadrado + 1.7);
-            campo_grid.Height = (Jogo.y) * Espaco.tamanhoQuadrado;
+            campo_grid.Width = ((Jogo.x) * Espaco.tamanhoQuadrado) + 15;
+            campo_grid.Height = ((Jogo.y) * Espaco.tamanhoQuadrado);
 
             topo.Width = campo_grid.Width;
             topo.Height = 80;
 
-            mainWindow.MaxHeight = mainWindow.MinHeight = topo.Height + campo_grid.Height;
-            mainWindow.MaxWidth = mainWindow.MinWidth = campo_grid.Width;
+            mainWindow.Height = topo.Height + campo_grid.Height;
+            mainWindow.Width = campo_grid.Width;
 
             InitializeGrid();
         }
@@ -42,11 +42,11 @@ namespace CampoMinado
         {
             for (int i = 0; i < Jogo.x; i++)
             {
-                campo_grid.RowDefinitions.Add(new RowDefinition());
+                campo_grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(Espaco.tamanhoQuadrado) });
 
                 for (int j = 0; j < Jogo.y; j++)
                 {
-                    campo_grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Espaco.tamanhoQuadrado)});
+                    campo_grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(Espaco.tamanhoQuadrado) });
                     Button espaco = new Button();
                     espaco.Width = espaco.Height = Espaco.tamanhoQuadrado;
                     espaco.PreviewMouseLeftButtonDown += Espaco_Click_Left;
@@ -56,8 +56,8 @@ namespace CampoMinado
 
                     espacos[i, j] = espaco;
 
-                    Grid.SetRow(espaco, i);
-                    Grid.SetColumn(espaco, j);
+                    Grid.SetRow(espaco, j);
+                    Grid.SetColumn(espaco, i);
 
                     campo_grid.Children.Add(espaco);
                 }
@@ -127,7 +127,7 @@ namespace CampoMinado
                         }
 
                         jogo.getTab().getSpace()[i, j].setFlagged();
-                        flags_textB.Text = jogo.getBandeiras().ToString();
+                        flags_textB.Text = jogo.getBandeiras().ToString().PadLeft(3, '0');
 
                         break;
                     }
@@ -147,7 +147,7 @@ namespace CampoMinado
                 }
             }
             sun_button.Content = setImagem2("C:\\Users\\louis\\source\\repos\\CampoMinado\\CampoMinado\\Imagens\\sun.png");
-            flags_textB.Text = jogo.getBandeiras().ToString();
+            flags_textB.Text = jogo.getBandeiras().ToString().PadLeft(3, '0');
             tempo = 0;
             time_textB.Text = tempo.ToString().PadLeft(3, '0');
         }
@@ -217,7 +217,7 @@ namespace CampoMinado
                     }
                 }
 
-                flags_textB.Text = "00";
+                flags_textB.Text = "000";
                 sun_button.Content = setImagem2("C:\\Users\\louis\\source\\repos\\CampoMinado\\CampoMinado\\Imagens\\sun.png", 190, 0);
             }
         }

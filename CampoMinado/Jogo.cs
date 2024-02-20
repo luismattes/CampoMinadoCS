@@ -31,7 +31,7 @@ namespace CampoMinado
                     break;
 
                 case 'G':
-                    x = 16; y = 30; bombCount = 99;
+                    x = 30; y = 16; bombCount = 99;
 
                     break;
             }
