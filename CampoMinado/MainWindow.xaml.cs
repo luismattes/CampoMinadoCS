@@ -32,8 +32,8 @@ namespace CampoMinado
             topo.Width = campo_grid.Width;
             topo.Height = 80;
 
-            mainWindow.Height = topo.Height + campo_grid.Height;
-            mainWindow.Width = campo_grid.Width;
+            mainWindow.Height = mainWindow.MaxHeight = mainWindow.MinHeight = topo.Height + campo_grid.Height;
+            mainWindow.Width = mainWindow.MaxWidth = mainWindow.MinWidth = campo_grid.Width;
 
             InitializeGrid();
         }
