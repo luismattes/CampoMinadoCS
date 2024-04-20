@@ -21,7 +21,7 @@ namespace CampoMinado
 
             InitializeComponent();
 
-            flags_textB.Text = jogo.getBandeiras().ToString().PadLeft(3, '0');
+            setBandeiras();
 
             sun_button.Width = 40;
             sun_button.Content = setImagem2("C:\\Users\\louis\\source\\repos\\CampoMinado\\CampoMinado\\Imagens\\sun.png");
@@ -127,7 +127,7 @@ namespace CampoMinado
                         }
 
                         jogo.getTab().getSpace()[i, j].setFlagged();
-                        flags_textB.Text = jogo.getBandeiras().ToString().PadLeft(3, '0');
+                        setBandeiras();
 
                         break;
                     }
@@ -147,9 +147,14 @@ namespace CampoMinado
                 }
             }
             sun_button.Content = setImagem2("C:\\Users\\louis\\source\\repos\\CampoMinado\\CampoMinado\\Imagens\\sun.png");
-            flags_textB.Text = jogo.getBandeiras().ToString().PadLeft(3, '0');
+            setBandeiras();
             tempo = 0;
             time_textB.Text = tempo.ToString().PadLeft(3, '0');
+        }
+
+        private void setBandeiras()
+        {
+            flags_textB.Text = jogo.getBandeiras().ToString("000");
         }
 
         public void clear(int x, int y)
